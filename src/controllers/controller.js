@@ -18,8 +18,8 @@ exports.getWeather=(req, res)=>{
         })
     } else{
      axios.get(url).then((response)=>{
-         
-        //  if(response.status=='404'){
+        // console.log(response)
+        //  if(!response){
         //     res.render("index", {
         //         weather: 'Location not found'
         //     })
@@ -32,6 +32,9 @@ exports.getWeather=(req, res)=>{
        //console.log(`It is currently ${response.data.main.temp} in ${response.data.name}`)
     }).catch((error) => {
 console.log(error)
+res.render("index", {
+ weather: 'Location not found'
+     })
     })
 }
 
